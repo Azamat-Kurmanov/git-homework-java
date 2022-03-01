@@ -6,10 +6,10 @@ public class JavaLesson3 {
         listWithHundredElements();                 // Задание 2
         listWithElementsLessSix();                 // Задание 3
         listWithDiagonals();                       // Задание 4
-        oneDimensionalArray(8, 5);   // Задание 5
+        oneDimensionalArray(8, 5);                 // Задание 5
         findMaxAndMin();                           // Задание 6
         checkBalance(new int[]{1, 1, 1, 2, 1});    // Задание 7
-        shiftingArr(new int[]{1,2,3,4,5}, 3);   // Задание 8
+        shiftingArr(new int[]{1,2,3,4,5}, 3);      // Задание 8
     }
 
     public static void changeValuesInArr() {
