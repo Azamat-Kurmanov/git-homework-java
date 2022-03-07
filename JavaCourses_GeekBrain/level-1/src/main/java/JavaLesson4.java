@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class JavaLesson4 {
     private static char[][] map;
-    private final static int MAP_SIZE = 3;
-    private final static int DOTS_COUNT_TO_WIN = 3;
+    private final static int MAP_SIZE = 4;
     private final static char DOT_X = 'X';
     private final static char DOT_O = 'O';
     private final static char DOT_EMPTY = '•';
@@ -43,27 +42,22 @@ public class JavaLesson4 {
     }
 
     private static boolean checkWin(char dot) {
-        int counterForHorizontalLines = 0;
-        int counterForVerticalLines = 0;
-        int counterForLeftDiagonal = 0;
-        int counterForRightDiagonal = 0;
+        int counterForLines = 0;
+        int counterForDiagonal = 0;
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                if (map[i][j] == dot){
-                    if (i==j){
-                        counterForLeftDiagonal ++; //---По диагонали слева
-                    }
-                    if (j == map[i].length-1-i){
-                        counterForRightDiagonal ++;//---По диагонали справа
-                    }
-                    counterForHorizontalLines ++;  //---По горизонтали
+                if (map[i][j] == dot && (i==j || j == map[i].length-1-i)){
+                    counterForDiagonal ++; //---По диагонали
+                }
+                if (map[i][j] == dot || map[j][i] == dot) {
+                    counterForLines++;     //---По горизонтали/вертикали
                 }
             }
 
-            if (counterForHorizontalLines == map[i].length || counterForLeftDiagonal == map[i].length || counterForRightDiagonal == map[i].length){
+            if (counterForLines == map[i].length || counterForDiagonal == map[i].length){
                 return true;
             }
-            counterForHorizontalLines = 0;
+            counterForLines = 0;
         }
         return false;
     }
