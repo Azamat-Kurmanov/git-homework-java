@@ -31,7 +31,7 @@ public class Activity {
         System.out.println("Реализация счетчика 1. Количество кошек: " + catCount + "\nКоличество собак: "+ dogCount +"\nКоличество животных: "+ animalCount);
 
 
-        //-----Реализация счетчика 2 через цикл:
+        //-----Реализация счетчика 2 перебор массива в цикле:
         int dogCounter = 0;
         int catCounter = 0;
         int animalsCounter = 0;
