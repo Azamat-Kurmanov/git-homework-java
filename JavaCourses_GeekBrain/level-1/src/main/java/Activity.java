@@ -1,49 +1,23 @@
 public class Activity {
     public static void main(String[] args) {
-        Cat cat1 = new Cat("Tom", "white", 5);
-        Cat cat2 = new Cat("Barsik", "Grey", 3);
-        Cat cat3 = new Cat("Moly", "Grey and white", 3);
-        Cat cat4 = new Cat("Kuzya", "white", 8);
+        Cat cat1 = new Cat("Max", 15);
+        Cat cat2 = new Cat("Tosha", 12);
+        Cat cat3 = new Cat("Barsik", 16);
+        Cat cat4 = new Cat("Pushok", 11);
+        Cat cat5 = new Cat("Molyan", 13);
+        Cat[] cats = {cat1, cat2, cat3, cat4, cat5};
+        Plate plate = new Plate(50);
 
-        Dog dog1 = new Dog("Graph", "Black", 2);
-        Dog dog2 = new Dog("Rex", "Brown", 4);
-        Dog dog3 = new Dog("Sharik", "Grey", 6);
-
-        Animal[] animals = {cat1, cat2, cat3, cat4, dog1, dog2, dog3};
-        countOfAnimals(animals, Dog.counter, Cat.counter, Animal.counter);  //---Задание 4, имеет 2 реализации
-
-        runAndSwim(); //---Задание 2 и 3
-    }
-
-    private static void runAndSwim() {
-        Animal cat = new Cat();
-        Animal dog = new Dog();
-
-        cat.run(150);
-        dog.run(250);
-
-        cat.swim(100);
-        dog.swim(50);
-    }
-
-    private static void countOfAnimals(Animal[] animals, int dogCount, int catCount, int animalCount) {
-        //-----Реализация счетчика 1 (счетчик установлен в самом классе):
-        System.out.println("Реализация счетчика 1. Количество кошек: " + catCount + "\nКоличество собак: "+ dogCount +"\nКоличество животных: "+ animalCount);
-
-
-        //-----Реализация счетчика 2 перебор массива в цикле:
-        int dogCounter = 0;
-        int catCounter = 0;
-        int animalsCounter = 0;
-
-        for (Animal animal: animals){
-            if (Cat.class.getName().equals(animal.getClass().getName())) {
-                catCounter++;
-            }else if(Dog.class.getName().equals(animal.getClass().getName())) {
-                dogCounter++;
+        plate.info();
+        for (Cat cat : cats) {
+            if (plate.getFoodQuantity() < cat.getAppetite()) {  // Если коту не хватило еды, то в миску добавляется кол-во еды согласно его аппетиту
+                plate.increaseFoodQuantity(cat.getAppetite() - plate.getFoodQuantity());
             }
-            animalsCounter++;
+            cat.eat(plate, cat.getName());
+            if (cat.isWellFed()) {  // Если текущее кол-во еды меньше необходимого кол-ва, то повторно данная инф-ия не отображается
+                plate.info();
+            }
+            System.out.println("----------");
         }
-        System.out.println("Реализация счетчика 2. Количество кошек: " + catCounter + "\nКоличество собак: "+ dogCounter +"\nКоличество животных: "+ animalsCounter);
     }
 }
