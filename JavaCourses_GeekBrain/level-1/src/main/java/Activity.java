@@ -9,7 +9,7 @@ public class Activity {
         Plate plate = new Plate(50);
 
         plate.info();
-        System.out.println("-----------");
+        System.out.println("----------");
         for (Cat cat : cats) {
             if (plate.getFoodQuantity() < cat.getAppetite()) {  // Если коту не хватило еды, то в миску добавляется кол-во еды согласно его аппетиту
                 plate.increaseFoodQuantity(cat.getAppetite() - plate.getFoodQuantity());

@@ -15,7 +15,7 @@ public class Plate {
 
     public void increaseFoodQuantity(int foodQuantity) {    // Добавление еды в миску
         this.foodQuantity += foodQuantity;
-        System.out.printf("В миску было добавлено %d.  \n",foodQuantity);
+        System.out.printf("В миску было добавлено %d. \n",foodQuantity);
     }
 
     public int getFoodQuantity() {
