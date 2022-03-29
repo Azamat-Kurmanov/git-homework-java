@@ -6,7 +6,7 @@ public class Plate {
     }
 
     public void info(){
-        System.out.println("Текущее количество еды " + foodQuantity);
+        System.out.printf("Текущее количество еды %d \n", foodQuantity);
     }
 
     public void decreaseFood(int foodQuantity) {
@@ -15,7 +15,7 @@ public class Plate {
 
     public void increaseFoodQuantity(int foodQuantity) {    // Добавление еды в миску
         this.foodQuantity += foodQuantity;
-        System.out.println("В миску было добавлено "+foodQuantity);
+        System.out.printf("В миску было добавлено %d.  \n",foodQuantity);
     }
 
     public int getFoodQuantity() {
