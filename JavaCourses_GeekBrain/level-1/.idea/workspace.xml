@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89983cea-0a34-4c29-9e75-3fc0e295945c" name="Changes" comment="Загрузка практического задания № 7. Небольшие поправки" />
+    <list default="true" id="89983cea-0a34-4c29-9e75-3fc0e295945c" name="Changes" comment="Загрузка практического задания № 7. Небольшие поправки">
+      <change afterPath="$PROJECT_DIR$/../level-1.8/src/lesson8/Example2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-1.8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../level-1.8/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,6 +105,7 @@
       <workItem from="1648497057433" duration="1139000" />
       <workItem from="1648576104601" duration="11812000" />
       <workItem from="1648740387516" duration="734000" />
+      <workItem from="1648752782845" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="Загрузка практического задания № 4">
       <created>1646672378607</created>
