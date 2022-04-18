@@ -14,7 +14,13 @@ public class ArrayValidation {
 
     //----Проверка размера массива
     public static void checkArray(String[][] array) {
-        if (array.length !=4){
+        int length = 4*4;
+        int countElements = 0;
+        for (String[] elements : array) {
+            countElements+=elements.length;
+        }
+//        System.out.println("countElements = " + countElements + " length: " + length);
+        if (length != countElements){
             throw new MyArraySizeException();
         } else {
             System.out.println("sum = " + goThrowArray(array));
