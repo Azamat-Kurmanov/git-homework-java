@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0af042a2-fa6d-4aad-b1ca-aa7b10fd2737" name="Changes" comment="" />
+    <list default="true" id="0af042a2-fa6d-4aad-b1ca-aa7b10fd2737" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1.8/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1.8/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1.8/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1.8/out/production/level-1.8/lesson8/CounterApp$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1.8/out/production/level-1.8/lesson8/CounterApp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1.8/src/lesson8/CounterApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/src/main/java/HomeWorkApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/src/main/java/JavaLesson3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/target/classes/Herringbone.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/target/classes/HomeWorkApp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/target/classes/JavaLesson2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-1/target/classes/JavaLesson3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../level-2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/level-2_.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_2/arrayExceptions/ArrayValidation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_3/ListOfWords.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_3/Phonebook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_3/ListOfWords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_3/Phonebook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../level-1/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../level-1.8/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../level-1.8/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/level-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../level-1.8/level-1.8.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/activities/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/activities/Activity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/activities/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/activities/Cat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/activities/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/activities/Human.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/activities/Robot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/activities/Robot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/exercises/Obstacles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/exercises/Obstacles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/exercises/Treadmill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/exercises/Treadmill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_1/exercises/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_1/exercises/Wall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_2/arrayExceptions/ArrayValidation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_2/arrayExceptions/MyArrayDataException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_2/arrayExceptions/MyArrayDataException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/out/production/level-2/ru/geekbrains/lesson_2/arrayExceptions/MyArraySizeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/level-2_/ru/geekbrains/lesson_2/arrayExceptions/MyArraySizeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/activities/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/activities/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/activities/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/activities/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/activities/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/activities/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/activities/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/activities/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/exercises/Obstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/exercises/Obstacles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/exercises/Treadmill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/exercises/Treadmill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_1/exercises/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_1/exercises/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_2/arrayExceptions/ArrayValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_2/arrayExceptions/ArrayValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_2/arrayExceptions/MyArrayDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_2/arrayExceptions/MyArrayDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../level-2/src/ru/geekbrains/lesson_2/arrayExceptions/MyArraySizeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/geekbrains/lesson_2/arrayExceptions/MyArraySizeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +81,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="java-2-lesson-3" />
+        <entry key="$PROJECT_DIR$/../.." value="java-2-lesson-1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -107,6 +171,7 @@
       <workItem from="1650275321335" duration="26199000" />
       <workItem from="1650484872384" duration="1611000" />
       <workItem from="1650486952502" duration="1854000" />
+      <workItem from="1650549907503" duration="282000" />
     </task>
     <servers />
   </component>
