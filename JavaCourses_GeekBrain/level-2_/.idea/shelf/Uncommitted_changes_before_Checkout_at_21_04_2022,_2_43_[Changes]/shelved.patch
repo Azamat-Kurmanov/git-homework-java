@@ -1,0 +1,61 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.idea\nout\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
++++ b/.gitignore	(date 1650486888412)
+@@ -1,2 +1,3 @@
+ .idea
+ out
++*.iml
+Index: level-2_.iml
+===================================================================
+diff --git a/level-2_.iml b/level-2_.iml
+deleted file mode 100644
+--- a/level-2_.iml	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
++++ /dev/null	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
+@@ -1,11 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../level-2/.idea/encodings.xml
+===================================================================
+diff --git a/../level-2/.idea/encodings.xml b/../level-2/.idea/encodings.xml
+deleted file mode 100644
+--- a/../level-2/.idea/encodings.xml	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
++++ /dev/null	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Encoding">
+-    <file url="PROJECT" charset="UTF-8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../level-2/.idea/misc.xml
+===================================================================
+diff --git a/../level-2/.idea/misc.xml b/../level-2/.idea/misc.xml
+deleted file mode 100644
+--- a/../level-2/.idea/misc.xml	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
++++ /dev/null	(revision 36eaea4a5edd4b07b47093d5c5fac66511d6fa14)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" default="true">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
