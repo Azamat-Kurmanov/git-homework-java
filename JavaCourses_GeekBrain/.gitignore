@@ -3,3 +3,9 @@ level-1.8
 level-2_/.idea
 level-2_/out
 level-2_/*.iml
+level-2_/ClientChat/*.iml
+level-2_/ClientChat/*.cmd
+level-2_/ClientChat/.mvn
+level-2_/ClientChat/target
+level-2_/ClientChat/mvnw
+#level-2_/ClientChat/src/main/resources/com/example/clientchat
