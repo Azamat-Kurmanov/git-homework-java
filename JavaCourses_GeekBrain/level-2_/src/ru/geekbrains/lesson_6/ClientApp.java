@@ -66,10 +66,10 @@ public class ClientApp {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String message = DateFormat.getTimeInstance().format(new Date())+" "+scanner.nextLine();
+            outputStream.writeUTF(message);
             if (message.startsWith("/end")){
                 break;
             }
-            outputStream.writeUTF(message);
         }
     }
 

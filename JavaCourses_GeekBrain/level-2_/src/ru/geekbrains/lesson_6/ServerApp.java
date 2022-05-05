@@ -66,10 +66,10 @@ public class ServerApp {
             Scanner scanner = new Scanner(System.in);
             while (true) {
                 String message = DateFormat.getTimeInstance().format(new Date())+" "+scanner.nextLine();
+                outputStream.writeUTF("Сообщение отправлено от сервера: " + message);
                 if (message.startsWith("/end")){
                     break;
                 }
-                outputStream.writeUTF("Сообщение отправлено от сервера: " + message);
             }
         }catch(IOException e){
             System.err.println("Ошибка передачи данных по сети");
