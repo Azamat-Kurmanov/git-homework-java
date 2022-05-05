@@ -8,4 +8,5 @@ level-2_/ClientChat/*.cmd
 level-2_/ClientChat/.mvn
 level-2_/ClientChat/target
 level-2_/ClientChat/mvnw
-#level-2_/ClientChat/src/main/resources/com/example/clientchat
+level-2_/Server/src/test
+level-2_/Server/target
