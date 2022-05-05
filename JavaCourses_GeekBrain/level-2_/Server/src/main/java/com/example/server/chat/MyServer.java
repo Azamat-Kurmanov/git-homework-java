@@ -14,7 +14,7 @@ public class MyServer {
 
     private AuthService authService;
     private final List<ClientHandler> clients = new ArrayList<>();
-    private final Map<String, ClientHandler> clientsMap = new HashMap<>();   //----Практическое задание:7
+    private final Map<String, ClientHandler> clientsMap = new HashMap<>();    //----Практическое задание:7
 
     public void start(int port) {
         try (ServerSocket serverSocket = new ServerSocket(port)) {

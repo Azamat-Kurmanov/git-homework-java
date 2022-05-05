@@ -53,7 +53,6 @@ public class ClientChat extends Application {
     private ClientController createChatDialog(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(ClientChat.class.getResource("chat-template.fxml"));
-
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);

@@ -25,6 +25,7 @@ public class ClientController {
 
     private ClientChat application;
 
+
     public void sendMessage(){
         String message = messageTextArea.getText();
 

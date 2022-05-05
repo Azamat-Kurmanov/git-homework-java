@@ -15,7 +15,7 @@ public class AuthController {
 
     public static final String AUTH_COMMAND = "/auth";
     public static final String AUTH_OK_COMMAND = "/authOk";
-    public static final String LIMIT_IS_EXCEEDED = "/outLimit";   //----Практическое задание:7
+    public static final String LIMIT_IS_EXCEEDED = "/outLimit";  //----Практическое задание:7
 
     @FXML
     public TextField loginField;
