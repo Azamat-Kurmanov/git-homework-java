@@ -15,7 +15,7 @@ public class AuthController {
 
     public static final String AUTH_COMMAND = "/auth";
     public static final String AUTH_OK_COMMAND = "/authOk";
-    public static final String LIMIT_IS_EXCEEDED = "/outLimit";
+    public static final String LIMIT_IS_EXCEEDED = "/outLimit";   //----Практическое задание:7
 
     @FXML
     public TextField loginField;
@@ -64,7 +64,7 @@ public class AuthController {
                             clientChat.getAuthStage().close();
                         }
                     });
-                } else if (message.startsWith(LIMIT_IS_EXCEEDED)) {
+                } else if (message.startsWith(LIMIT_IS_EXCEEDED)) {   //----Практическое задание:7
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
