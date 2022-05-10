@@ -10,3 +10,5 @@ level-2_/ClientChat/target
 level-2_/ClientChat/mvnw
 level-2_/Server/src/test
 level-2_/Server/target
+level-2_/Commands/target
+level-2_/Commands/src/test

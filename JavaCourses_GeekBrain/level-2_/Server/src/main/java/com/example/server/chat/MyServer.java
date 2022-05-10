@@ -1,5 +1,6 @@
 package com.example.server.chat;
 
+import com.example.commands.Command;
 import com.example.server.chat.auth.AuthService;
 
 import java.io.IOException;
@@ -14,7 +15,6 @@ public class MyServer {
 
     private AuthService authService;
     private final List<ClientHandler> clients = new ArrayList<>();
-    private final Map<String, ClientHandler> clientsMap = new HashMap<>();    //----Практическое задание:7
 
     public void start(int port) {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
@@ -38,31 +38,51 @@ public class MyServer {
             clientHandler.handle();
         }
     }
-    
-    public void personalMessage(String message, String userName) throws IOException {   //----Практическое задание:7
-            if (!userName.isEmpty() && !message.isEmpty()){
-                ClientHandler textMessage = clientsMap.get(userName);
-                textMessage.sendMessage(message);
-            }
-    }
 
-    public void broadcastMessage(String message, ClientHandler sender) throws IOException {
+    public synchronized void broadcastMessage(String message, ClientHandler sender) throws IOException {
         for (ClientHandler client : clients) {
             if (client != sender){
-                client.sendMessage(message);
+                client.sendCommand(Command.clientMessageCommand(sender.getUserName(), message));
             }
         }
     }
 
-    public void subscribeInMap(ClientHandler clientHandler, String userName){
-        clientsMap.put(userName, clientHandler);
-    }
-    public void subscribe(ClientHandler clientHandler){
-        clients.add(clientHandler);
+    public synchronized void sendPrivateMessage(ClientHandler sender, String recipient, String privaMessage) throws IOException {
+        for (ClientHandler client : clients) {
+            if (client != sender && client.getUserName().equals(recipient)){
+                client.sendCommand(Command.clientMessageCommand(sender.getUserName(), privaMessage));
+            }
+        }
     }
 
-    public void unsubscribe(ClientHandler clientHandler){
+    private void notifyUserListUpdated() throws IOException {
+        List<String> users = new ArrayList<>();
+        for (ClientHandler client : clients) {
+            users.add(client.getUserName());
+        }
+
+        for (ClientHandler client : clients) {
+            client.sendCommand(Command.updateUserListCommand(users));
+        }
+    }
+
+    public synchronized boolean isUserNameBusy(String userName){
+        for (ClientHandler client : clients){
+            if (client.getUserName().equals(userName)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public synchronized void subscribe(ClientHandler clientHandler) throws IOException {
+        clients.add(clientHandler);
+        notifyUserListUpdated();
+    }
+
+    public synchronized void unsubscribe(ClientHandler clientHandler) throws IOException {
         clients.remove(clientHandler);
+        notifyUserListUpdated();
     }
 
     public AuthService getAuthService() {

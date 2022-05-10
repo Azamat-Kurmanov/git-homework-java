@@ -1,21 +1,24 @@
 package com.example.server.chat;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import com.example.commands.Command;
+import com.example.commands.CommandType;
+import com.example.commands.commands.AuthCommandData;
+import com.example.commands.commands.PrivateMessageCommandData;
+import com.example.commands.commands.PublicMessageCommandData;
+
+import java.io.*;
 import java.net.Socket;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ClientHandler {
 
-    public static final String AUTH_COMMAND = "/auth";
-    public static final String AUTH_OK_COMMAND = "/authOk";
-    public static final String LIMIT_IS_EXCEEDED = "/outLimit";   //----Практическое задание:7
-    public static final String PARTICULAR_USERNAME = "/w";    //----Практическое задание:7
     private MyServer server;
     private final Socket clientSocket;
-    private DataInputStream inputStream;
-    private DataOutputStream outputStream;
-    private int limit = 2;     //----Практическое задание:7 ---Лимит для входа
+    private ObjectInputStream inputStream;
+    private ObjectOutputStream outputStream;
+    private String userName;
 
     public ClientHandler(MyServer server, Socket clientSocket) {
         this.server = server;
@@ -23,8 +26,8 @@ public class ClientHandler {
     }
 
     public void handle() throws IOException {
-        inputStream = new DataInputStream(clientSocket.getInputStream());
-        outputStream = new DataOutputStream(clientSocket.getOutputStream());
+        inputStream = new ObjectInputStream(clientSocket.getInputStream());
+        outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
         new Thread(() -> {
             try {
                 authenticate();
@@ -43,63 +46,104 @@ public class ClientHandler {
     }
 
     private void authenticate() throws IOException {
-        int numberOfAuth = 0;
         while(true) {
-            String message = inputStream.readUTF();
-            if (numberOfAuth<limit) {
-                if (message.startsWith(AUTH_COMMAND)) {
-                    String[] parts = message.split(" ");
-                    String login = parts[1];
-                    String password = parts[2];
+            Command command = readCommand();
 
-                    String userName = this.server.getAuthService().getUserNameByLoginAndPassword(login, password);
+            if (command == null){
+                continue;
+            }
 
-                    if (userName == null) {
-                        sendMessage("Некорректный логин и пароль");
-                    } else {
-                        sendMessage(String.format("%s %s", AUTH_OK_COMMAND, userName));
-                        server.subscribe(this);
-                        server.subscribeInMap(this, userName);
-                        return;
-                    }
-                    numberOfAuth ++;
+            if (command.getType() == CommandType.AUTH) {
+                AuthCommandData data = (AuthCommandData) command.getData();
+
+                String login = data.getLogin();
+                String password = data.getPassword();
+
+                String userName = this.server.getAuthService().getUserNameByLoginAndPassword(login, password);
+
+                if (userName == null) {
+                    sendCommand(Command.errorCommand("Некорректные имя пользователя или пароль"));
+                    checkUserName(false, this, null);      //--Практическое задание №8
+                } else if(server.isUserNameBusy(userName)){
+                    sendCommand(Command.errorCommand("Такой пользователь уже существует"));
+                    checkUserName(false, this, null);      //--Практическое задание №8
+                } else {
+                    this.userName = userName;
+                    sendCommand(Command.authOkCommand(userName));
+                    server.subscribe(this);
+                    checkUserName(true, this, userName);      //--Практическое задание №8
+                    return;
                 }
-            } else {
-                sendMessage(LIMIT_IS_EXCEEDED);   //----Практическое задание:7
-                return;
             }
         }
 
+    }
+
+    private void checkUserName(boolean result, ClientHandler clientHandler, String userName) {      //--Практическое задание №8
+        Timer timer = new Timer(true);
+        if(result ==false){
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    try {
+                        server.unsubscribe(clientHandler);
+                        System.out.println("Неавторизованный пользователь был отключен в: " + new Date());
+                    } catch (IOException e) {
+                        System.out.println("Соединение с пользователем было разорвано");
+                        e.printStackTrace();
+                    }
+                }
+            };
+            System.out.println("Не авторизован");
+            timer.schedule(timerTask, 12000);
+            System.out.println("Запустился процесс отключения неавторизованных пользователей по таймауту");
+        } else {
+            timer.cancel();
+            System.out.println("Пользователь " + userName + " был авторизован и процесс отключения был отменен");
+        }
+
+    }
+
+    private Command readCommand() throws IOException {
+        Command command = null;
+        try {
+            command = (Command) inputStream.readObject();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Failed to read Command class");
+            e.printStackTrace();
+        }
+
+        return command;
     }
 
     private void readMessages() throws IOException {
         while (true){
-            String message = inputStream.readUTF().trim();
-            if (message.startsWith("/end")){
-                return;
-            } else if (message.startsWith(PARTICULAR_USERNAME)){   //----Практическое задание:7
-                String[] parts = message.split(" ");
-                String userName = parts[1];
-                String onlyMessage = message.replaceAll(PARTICULAR_USERNAME + " " + userName + " ", "");
-                processForPersonalMessage(onlyMessage, userName);
-            } else {
-                processMessage(message);
+            Command command = readCommand();
+            if (command == null){
+                continue;
+            }
+            switch (command.getType()){
+                case PRIVATE_MESSAGE: {
+                    PrivateMessageCommandData data = (PrivateMessageCommandData) command.getData();
+                    String receiver = data.getReceiver();
+                    String privateMessage = data.getMessage();
+                    server.sendPrivateMessage(this, receiver, privateMessage);
+                    break;
+                }
+                case PUBLIC_MESSAGE:
+                    PublicMessageCommandData data = (PublicMessageCommandData) command.getData();
+                    processMessage(data.getMessage());
+                    break;
             }
         }
     }
 
-    private void processForPersonalMessage(String message, String username) throws IOException{   //----Практическое задание:7
-        if (message.length()>0 && !username.isEmpty()){
-            this.server.personalMessage(message, username);
-        }
-
-    }
     private void processMessage(String message) throws IOException {
         this.server.broadcastMessage(message, this);
     }
 
-    public void sendMessage(String message) throws IOException {
-        this.outputStream.writeUTF(message);
+    public void sendCommand(Command command) throws IOException {
+        outputStream.writeObject(command);
     }
 
     private void closeConnection() throws IOException {
@@ -107,5 +151,9 @@ public class ClientHandler {
         inputStream.close();
         server.unsubscribe(this);
         clientSocket.close();
+    }
+
+    public String getUserName() {
+        return userName;
     }
 }

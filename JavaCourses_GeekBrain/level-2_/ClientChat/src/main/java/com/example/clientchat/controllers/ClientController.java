@@ -1,17 +1,23 @@
 package com.example.clientchat.controllers;
 
-import com.example.clientchat.ClientChat;
+import com.example.clientchat.dialogs.Dialogs;
+import com.example.clientchat.model.Network;
+import com.example.clientchat.model.ReadMessageListener;
+import com.example.commands.Command;
+import com.example.commands.CommandType;
+import com.example.commands.commands.ClientMessageCommandData;
+import com.example.commands.commands.UpdateUserListCommandData;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import ru.geekbrains.lesson_6.Network;
 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.function.Consumer;
 
 public class ClientController {
     @FXML
@@ -22,9 +28,6 @@ public class ClientController {
     public TextArea chatTextArea;
     @FXML
     public ListView userList;
-
-    private ClientChat application;
-
 
     public void sendMessage(){
         String message = messageTextArea.getText();
@@ -39,10 +42,14 @@ public class ClientController {
         }
 
         try {
-            message = sender != null ? String.format(": ", sender, message) : message; // Server: message
-            Network.getInstance().sendMessage(message);
+            if (sender != null){
+                Network.getInstance().sendPrivateMessage(sender, message);
+            } else {
+                Network.getInstance().sendMessage(message);
+            }
+
         }catch(IOException e){
-            application.showErrorDialog("Ошибка передачи данных по сети");
+            Dialogs.NetworkError.SEND_MESSAGE.show();
         }
         appendMessageToChat("Я", message);
     }
@@ -59,24 +66,28 @@ public class ClientController {
         chatTextArea.appendText(message);
         chatTextArea.appendText(System.lineSeparator());
         chatTextArea.appendText(System.lineSeparator());
-        messageTextArea.requestFocus();
+        requestFocusForTextArea();
         messageTextArea.clear();
     }
 
+    private void requestFocusForTextArea(){
+        Platform.runLater(() -> messageTextArea.requestFocus());
+    }
+
     public void initializeMessageHandler() {
-        Network.getInstance().waitMessages(new Consumer<String>() {
+        Network.getInstance().addReadListener(new ReadMessageListener() {
             @Override
-            public void accept(String message) {
-                appendMessageToChat("Server", message);
+            public void processReceivedCommand(Command command) {
+                if (command.getType() == CommandType.CLIENT_MESSAGE) {
+                    ClientMessageCommandData data = (ClientMessageCommandData) command.getData();
+                    appendMessageToChat(data.getSender(), data.getMessage());
+                } else if (command.getType() == CommandType.UPDATE_USER_LIST){
+                    UpdateUserListCommandData data = (UpdateUserListCommandData) command.getData();
+                    Platform.runLater(() -> {
+                        userList.setItems(FXCollections.observableArrayList(data.getUsers()));
+                    });
+                }
             }
         });
-    }
-
-    public ClientChat getApplication() {
-        return application;
-    }
-
-    public void setApplication(ClientChat application) {
-        this.application = application;
     }
 }
