@@ -14,7 +14,7 @@ import java.util.TimerTask;
 
 public class ClientHandler {
 
-    private MyServer server;
+    private final MyServer server;
     private final Socket clientSocket;
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
