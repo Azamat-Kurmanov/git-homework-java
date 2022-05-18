@@ -81,7 +81,7 @@ public class ClientHandler {
 
     private void checkUserName(boolean result, ClientHandler clientHandler, String userName) {      //--Практическое задание №8
         Timer timer = new Timer(true);
-        if(result ==false){
+        if(!result){
             TimerTask timerTask = new TimerTask() {
                 @Override
                 public void run() {
@@ -95,7 +95,7 @@ public class ClientHandler {
                 }
             };
             System.out.println("Не авторизован");
-            timer.schedule(timerTask, 12000);
+            timer.schedule(timerTask, 120_000);
             System.out.println("Запустился процесс отключения неавторизованных пользователей по таймауту");
         } else {
             timer.cancel();
