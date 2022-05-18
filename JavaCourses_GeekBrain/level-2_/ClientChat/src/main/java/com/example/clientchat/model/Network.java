@@ -11,13 +11,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Network {
 
-    private List<ReadMessageListener> listeners = new CopyOnWriteArrayList<>();
+    private final List<ReadMessageListener> listeners = new CopyOnWriteArrayList<>();
     private static Network INSTANCE;
     public static final String SERVER_HOST = "127.0.0.1";
     public static final int SERVER_PORT = 8189;
 
-    private String host;
-    private int port;
+    private final String host;
+    private final int port;
     private Socket socket;
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
